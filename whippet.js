@@ -51,7 +51,8 @@ function scriptsLoaded()
     doc.regen();
 
 
-
+    let v = new Vector2(1,2);
+    console.log(v);
 
 
 

@@ -195,7 +195,6 @@ class Poly extends Element
 
         }
 
-        console.log(path);
         path += this.closed? 'z':'';
         return path;
     }

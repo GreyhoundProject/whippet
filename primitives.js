@@ -37,7 +37,6 @@ class DocElement
 
     append(child)
     {
-        console.log(this, child)
         this.__htmlElement.appendChild(child.__htmlElement);
     }
     
