@@ -28,6 +28,13 @@ class SvgController
         return newElementHandle;
     }
 
+    static appendChild(parent, child)
+    {
+        let pElement = new DocElement(parent);
+        let cElement = new DocElement(child);
+        pElement.append(cElement);
+    }
+
     static SetElementAttributes(svgElementHandle, attributes)
     {
         let svgElement = new DocElement(svgElementHandle);

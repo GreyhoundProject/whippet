@@ -23,7 +23,7 @@ class App
     setActiveDocument(document)
     {
         this.__activeDocument = document;
-        this.__activeDocument.redraw();
+        this.__activeDocument.regen();
     }
 
 }

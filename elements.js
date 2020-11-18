@@ -40,7 +40,6 @@ class Circle extends Element
     add()
     {
         this.handle = SvgController.CreateNewElement('ellipse', true);
-        this.update();
     }
 
     update()
@@ -74,10 +73,10 @@ class Rectangle extends Element
         };
     }
 
-    add()
+    add(parent)
     {
+        this.parent = parent;
         this.handle = SvgController.CreateNewElement('rect', true);
-        this.update();
     }
 
     update()
@@ -110,10 +109,10 @@ class Line extends Element
         };
     }
 
-    add()
+    add(parent)
     {
+        this.parent = parent;
         this.handle = SvgController.CreateNewElement('line', true);
-        this.update();
     }
 
     update()
@@ -161,10 +160,10 @@ class Poly extends Element
         this.nodes.push(node);
     }
 
-    add()
+    add(parent)
     {
+        this.parent = parent;
         this.handle = SvgController.CreateNewElement('path', true);
-        this.update();
     }
 
     compilePath()
@@ -172,9 +171,9 @@ class Poly extends Element
         let path = `M${this.nodes[0].position.x},${this.nodes[0].position.y} `;
 
         // FOR EACH LINE SEGMENT
-        for (let n=1; n<this.nodes.length; n++)
+        for (let n=1; n<=this.nodes.length; n++)
         {
-            let nNode = this.nodes[n];
+            let nNode = (n==this.nodes.length)? this.nodes[0]:this.nodes[n];
             let pNode = this.nodes[n-1];
             
             if (pNode.c2.x === 0 && pNode.c2.y === 0 && nNode.c1.x === 0 && nNode.c1.y === 0)
@@ -186,21 +185,21 @@ class Poly extends Element
                 path += `C${pNode.position.x},${pNode.position.y}`;
     
                 if (pNode.c2.x !== 0 || pNode.c2.y !== 0)
-                    path += ` ${pNode.c2.x},${pNode.c2.y}`;
+                    path += ` ${pNode.position.x + pNode.c2.x},${pNode.position.y + pNode.c2.y}`;
     
                 if (nNode.c1.x !== 0 || nNode.c1.y !== 0)
-                    path += ` ${nNode.c1.x},${nNode.c1.y}`;
-                
+                    path += ` ${nNode.position.x + nNode.c1.x},${nNode.position.y + nNode.c1.y}`;
+
                 path += ` ${nNode.position.x},${nNode.position.y} `;
             }
 
         }
+
         console.log(path);
         path += this.closed? 'z':'';
         return path;
     }
 
-    // M181,50 C140,1 100,1 60,52 L60,176 L181,176 L181,52Z
 
     update()
     {
@@ -210,5 +209,36 @@ class Poly extends Element
             'stroke':       this.stroke.colour.rgba(),
             'stroke-width': this.stroke.width
         });
+    } 
+}
+
+
+
+class Group extends Element
+{
+    constructor()
+    {
+        super();
+    }
+
+    add(parent)
+    {
+        this.parent = parent;
+        this.handle = SvgController.CreateNewElement('g', true);
+    }
+
+    addElement(child)
+    {
+        child.parent = this.handle;
+        SvgController.appendChild(this.handle, child.handle);
+    }
+
+    update()
+    {
+        for(let e in Element.__elementTable)
+        {
+            let element = Element.__elementTable[e];
+            if (element.parent == this.handle) { element.update(); }
+        }
     } 
 }

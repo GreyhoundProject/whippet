@@ -34,6 +34,12 @@ class DocElement
         for(let a in attributes)
             this.__htmlElement.setAttribute(a, attributes[a]);
     }
+
+    append(child)
+    {
+        console.log(this, child)
+        this.__htmlElement.appendChild(child.__htmlElement);
+    }
     
 }
 

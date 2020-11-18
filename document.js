@@ -10,11 +10,12 @@ class Document
         element.add(this.handle);
     }
 
-    redraw()
+    regen()
     {
-        for(e in this.elementTable)
+        for(let e in Element.__elementTable)
         {
-            this.elementTable[e].update();
+            let element = Element.__elementTable[e];
+            if (element.parent == this.handle) { element.update(); }
         }
     }
 }
