@@ -53,12 +53,41 @@ class Colour
         this.a = a;
     }
 
+    setColour(c)
+    {
+        if (c instanceof Colour)
+        {
+            this.r = c.r;
+            this.g = c.g;
+            this.b = c.b;
+            this.a = c.a;
+            return;
+        }
+    }
+
     setRgba(r,g,b,a)
     {
-        this.r = r;
-        this.g = g;
-        this.b = b;
-        this.a = a;
+        if (r,g,b,a)
+        {
+            if (!r.isNan && !g.isNan && !b.isNan && !a.isNan)
+            {
+                this.r = r;
+                this.g = g;
+                this.b = b;
+                this.a = a;
+                return;
+            }
+        }
+
+        if (typeof r === 'string' || r instanceof String)
+        {
+            let rgba = r.replace(/ /g,'')
+            let split = /^rgba\(([\d]+),([\d]+),([\d]+),([.\d]+)\)$/i.exec(rgba);
+            this.r = parseInt(split[1]);
+            this.g = parseInt(split[2]);
+            this.b = parseInt(split[3]);
+            this.a = parseFloat(split[4]);
+        }
     }
 
     setRgb(r,g,b)
@@ -89,6 +118,6 @@ class Colour
 
     rgba()
     {
-        return (`rgba(${this.r},${this.g},${this.b},${this.a})`);
+        return (`rgba( ${this.r},${this.g},  ${this.b},${this.a})`);
     }
 }

@@ -1,7 +1,9 @@
 let includes = [
+    'debug',
     'app',
     'document',
     'elements',
+    'math',
     'primitives',
     'svgcontroller',
     'whippet'
@@ -17,9 +19,9 @@ window.addEventListener('load', () => {
         document.head.appendChild(tempScript);
         tempScript.addEventListener('load', () => {
             scriptLoadCounter++;
-            if (scriptLoadCounter == includes.length ) { scriptsLoaded(); }
+            if (scriptLoadCounter == includes.length ) { EntryPoint(); }
         });
-        console.log( `Imported script file: ${includes[scr]}.js` );
+        
         tempScript.src = `${includes[scr]}.js`;
     }
 })

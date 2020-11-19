@@ -1,14 +1,13 @@
-function scriptsLoaded()
+function EntryPoint()
 {
+    Debug.active = true;
     let app = new App();
     let doc = new Document();
 
-
     app.addDocument(doc);
-    
+    app.setActiveFillRgba(255, 30, 30, 1);
+    app.setActiveStrokeRgba(0,255,0,1);
 
-    let rect = new Rectangle();
-    //doc.addElement(rect);
 
     let line = new Line();
     doc.addElement(line);
@@ -17,16 +16,11 @@ function scriptsLoaded()
     line.end.x = 150;
     line.end.y = 150;
     
-    
+
     let p  = new Poly();
-    let aFill = app.activeFill;
-    let sColour = app.activeStroke.colour;
-    
-    aFill.a = 0;
-    
-    p.fill.setRgba( aFill.r, aFill.g, aFill.b, aFill.a ); 
-    p.stroke.colour.setRgba( sColour.r, sColour.g, sColour.b, sColour.a );
-    p.stroke.width = app.activeStroke.width;
+    p.fill.setRgba( app.getActiveFillRgba() );
+    p.stroke.colour = app.getActiveStrokeColour();
+    Debug.out(p);
     
     let n1 = new PolyNode(100, 100);
     let n2 = new PolyNode(150, 100);
@@ -52,11 +46,8 @@ function scriptsLoaded()
 
 
     let v = new Vector2(1,2);
-    console.log(v);
-
-
-
-    // console.log(app);
+    Debug.out(v);
+    Debug.out(app);
 
 
 }
