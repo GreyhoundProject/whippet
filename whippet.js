@@ -45,9 +45,9 @@ function EntryPoint()
     doc.regen();
 
 
-    let v = new Vector2(1,2);
-    Debug.out(v);
-    Debug.out(app);
+    let m = new Matrix([ [1,2],[3,4] ]);
+    Debug.out(m);
+
 
 
 }

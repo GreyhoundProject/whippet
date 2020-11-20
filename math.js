@@ -49,5 +49,37 @@ class Vector2
 
 class Matrix
 {
+    constructor(values)
+    {
+        this.elements = [];
+        this.set(values);
+    }
     
+    set(values)
+    {
+        if (!Array.isArray(values))
+        {
+            this.elements = [ [0,0],[0,0] ];
+            Debug.out('False Matrix Constructor');
+            return false;
+        }
+
+        // CHECK FORMAT OF VALUES
+        if ( Array.isArray(values[0]) )
+        {
+            let rowLength = values[0].length
+            for(let i in values)
+            {
+                if (rowLength !== values[i].length)
+                {
+                    this.elements = [ [0,0],[0,0] ];
+                    Debug.out('Inconsistent column length');
+                    return false;
+                }
+            }
+
+            this.elements = values;
+        }
+
+    }
 }
