@@ -17,36 +17,12 @@ function EntryPoint()
     line.end.y = 150;
     
 
-    let p  = new Poly();
-    p.fill.setRgba( app.getActiveFillRgba() );
-    p.stroke.colour = app.getActiveStrokeColour();
-    Debug.out(p);
+    let l2 = new Line(0,0,0,0);
+    doc.addElement(l2);
     
-    let n1 = new PolyNode(100, 100);
-    let n2 = new PolyNode(150, 100);
-    let n3 = new PolyNode(150, 150);
-    let n4 = new PolyNode(100, 150);
-    p.closed = true;
-    
-    p.addNode(n1);
-    p.addNode(n2);
-    p.addNode(n3);
-    p.addNode(n4);
-    
-    doc.addElement(p);
-    
-    
-    let g = new Group();
-    doc.addElement(g);
-    g.addElement(p);
-    g.addElement(line);
-    
-
     doc.regen();
-
-
-    let m = new Matrix([ [1,2],[3,4] ]);
-    Debug.out(m);
+    
+    
 
 
 

@@ -97,12 +97,12 @@ class Rectangle extends Element
 
 class Line extends Element
 {
-    constructor()
+    constructor(sx=0, sy=0, ex=0, ey=0)
     {
         super();
         
-        this.start = {x: 0, y: 0};
-        this.end   = {x: 0, y: 0};
+        this.start = {x: sx, y: sy};
+        this.end   = {x: ex, y: ey};
         this.stroke = {
              colour: new Colour(),
              width : 1
