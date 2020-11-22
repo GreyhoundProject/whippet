@@ -1,0 +1,27 @@
+$window-color: rgba(38,38,41,1);
+
+body
+{
+    background-color: darken($window-color, 6%);
+}
+
+#viewport
+{
+    background-color: darken($window-color, 6%);
+}
+
+.window
+{
+    background-color: $window-color;
+}
+
+.window-title
+{
+    background-color: darken($window-color, 6%);
+    cursor: pointer;
+    height: 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}

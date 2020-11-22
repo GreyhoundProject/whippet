@@ -29,7 +29,7 @@ class Circle extends Element
         super();
 
         this.size = {x:130, y:60};
-        this.postion = {x:0, y:0};
+        this.position = {x:0, y:0};
         this.fillColour = new Colour();
         this.stroke = {
              colour: new Colour(),
@@ -37,16 +37,17 @@ class Circle extends Element
         };
     }
 
-    add()
+    add(parent)
     {
+        this.parent = parent;
         this.handle = SvgController.CreateNewElement('ellipse', true);
     }
 
     update()
     {
         SvgController.SetElementAttributes( this.handle, {
-            'cx':           this.postion.x,
-            'cy':           this.postion.y,
+            'cx':           this.position.x,
+            'cy':           this.position.y,
             'rx':           this.size.x,
             'ry':           this.size.y,
             'fill':         this.fillColour.rgba(),
@@ -65,7 +66,7 @@ class Rectangle extends Element
         super();
         
         this.size = {x: 100, y: 100};
-        this.postion = {x:0, y:0};
+        this.position = {x:0, y:0};
         this.fillColour = new Colour();
         this.stroke = {
              colour: new Colour(),
@@ -82,8 +83,8 @@ class Rectangle extends Element
     update()
     {
         SvgController.SetElementAttributes( this.handle, {
-            'x':            this.postion.x,
-            'y':            this.postion.y,
+            'x':            this.position.x,
+            'y':            this.position.y,
             'width':        this.size.x,
             'height':       this.size.y,
             'fill':         this.fillColour.rgba(),
@@ -178,11 +179,12 @@ class Poly extends Element
             
             if (pNode.c2.x === 0 && pNode.c2.y === 0 && nNode.c1.x === 0 && nNode.c1.y === 0)
             {
-                path += `L${pNode.position.x},${pNode.position.y} ${nNode.position.x},${nNode.position.y} `;
+                //path += `L${pNode.position.x},${pNode.position.y} ${nNode.position.x},${nNode.position.y} `;
+                path += `L${nNode.position.x},${nNode.position.y} `;
             }
             else
             {
-                path += `C${pNode.position.x},${pNode.position.y}`;
+                path += `C` //${pNode.position.x},${pNode.position.y}`;
     
                 if (pNode.c2.x !== 0 || pNode.c2.y !== 0)
                     path += ` ${pNode.position.x + pNode.c2.x},${pNode.position.y + pNode.c2.y}`;

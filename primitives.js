@@ -8,41 +8,6 @@ class Guid
 }
 
 
-class DocElement
-{
-    __htmlElement = null;
-    
-    constructor(id)
-    {
-        this.__htmlElement = document.getElementById(id);
-    }
-
-    style(props)
-    {
-        if (this.__htmlElement === null)
-            return false;
-
-        for(let p in props)
-            this.__htmlElement.style.p = props[p];
-    }
-
-    attributes(attributes)
-    {
-        if (this.__htmlElement === null)
-            return false;
-            
-        for(let a in attributes)
-            this.__htmlElement.setAttribute(a, attributes[a]);
-    }
-
-    append(child)
-    {
-        this.__htmlElement.appendChild(child.__htmlElement);
-    }
-    
-}
-
-
 class Colour
 {
     constructor( r=0, g=0, b=0, a=1 )

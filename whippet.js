@@ -8,21 +8,35 @@ function EntryPoint()
     app.setActiveFillRgba(255, 30, 30, 1);
     app.setActiveStrokeRgba(0,255,0,1);
 
+    let c = new Circle();
+    c.position.x = 150;
+    c.position.y = 150;
+    c.size.x = 50;
+    c.size.y = 50;
+    c.fillColour.setRgba( app.getActiveFillRgba() );
 
-    let line = new Line();
-    doc.addElement(line);
-    line.start.x = 100;
-    line.start.y = 100;
-    line.end.x = 150;
-    line.end.y = 150;
-    
+    doc.addElement(c);
 
-    let l2 = new Line(0,0,0,0);
-    doc.addElement(l2);
+    let p = Convert.ToPoly(c);
+    doc.addElement(p);
+
+
     
+    let t = new Poly();
+    t.addNode( new PolyNode(100, 100) );
+    t.addNode( new PolyNode(200, 100) );
+    t.addNode( new PolyNode(200, 200) );
+    t.addNode( new PolyNode(100, 200) );
+    t.fill = new Colour(0,0,0,0)
+    doc.addElement(t);
+
     doc.regen();
     
-    
+
+
+    let wnd = new Dialog();
+    console.log(wnd);
+
 
 
 

@@ -3,9 +3,12 @@ let includes = [
     'app',
     'document',
     'elements',
+    'htmlcontroller',
     'math',
+    'operations',
     'primitives',
     'svgcontroller',
+    'ui',
     'whippet'
 ]
 

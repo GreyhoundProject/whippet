@@ -1,0 +1,22 @@
+body {
+  background-color: #171719;
+}
+
+#viewport {
+  background-color: #171719;
+}
+
+.window {
+  background-color: #262629;
+}
+
+.window-title {
+  background-color: #171719;
+  cursor: pointer;
+  height: 25px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+/*# sourceMappingURL=ui.css.map */
