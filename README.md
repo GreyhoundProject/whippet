@@ -8,15 +8,15 @@
 
 ## Table of contents 📖
 
-- [Contributing](#contributing)
-- [Our Pledge](#our-pledge)
-- [Our Standards](#our-standard)
-- [Our Responsibilities](#our-responsibility)
-- [Scope](#scope)
-- [Enforcement](#enforcement)
-- [Attribution](#attribution)
-- [Creator](#creator)
-- [Copyright and License](#copyright-and-license)
+- [Contributing](#contributing-)
+- [Our Pledge](#our-pledge-)
+- [Our Standards](#our-standards-)
+- [Our Responsibilities](#our-responsibilities-)
+- [Scope](#scope-)
+- [Enforcement](#enforcement-)
+- [Attribution](#attribution-)
+- [Creator](#creator-)
+- [Copyright and License](#copyright-and-license-)
 
 
 ## Contributing 🌲
