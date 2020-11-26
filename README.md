@@ -4,6 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/GreyhoundProject/whippet/blob/main/LICENSE)
 [![GitHub last commit](https://img.shields.io/github/last-commit/greyhoundproject/whippet)](https://github.com/GreyhoundProject/whippet)
 [![Bitbucket open issues](https://img.shields.io/bitbucket/issues-raw/greyhoundproject/whippet)](https://github.com/GreyhoundProject/whippet/issues)
+![lang-js](https://img.shields.io/badge/Language-JS-yellow)
 
 ## Table of contents 📖
 
