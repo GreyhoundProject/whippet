@@ -1,9 +1,9 @@
 # Whippet
 **Whippet** aims to be an free open-source SVG editor with support for animation.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-![GitHub last commit](https://img.shields.io/github/last-commit/greyhoundproject/whippet)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues-raw/greyhoundproject/whippet)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/GreyhoundProject/whippet/blob/main/LICENSE)
+[![GitHub last commit](https://img.shields.io/github/last-commit/greyhoundproject/whippet)](https://github.com/GreyhoundProject/whippet)
+[![Bitbucket open issues](https://img.shields.io/bitbucket/issues-raw/greyhoundproject/whippet)](https://github.com/GreyhoundProject/whippet/issues)
 
 ## Table of contents
 
